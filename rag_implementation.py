@@ -16,7 +16,7 @@ def load_json_data(file_path):
         json_data = json.load(f)
     return json_data
 
-
+# Process and returns JSON data
 def process_json_data(json_data):
     documents = []
     for record in json_data['workouts']:
