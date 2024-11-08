@@ -7,7 +7,9 @@ from langchain.embeddings import LlamaEmbeddings
 import streamlit as st
 import json
 
-JSON_FILE_PATH = "../json/data.json"
+from platformdirs import user_data_dir
+
+JSON_FILE_PATH = "json/data.json"
 
 # This loads the file needed to be called
 def load_json_data(file_path):
@@ -80,4 +82,57 @@ for chat in st.session_state.chat_history:
     else:
         st.markdown(f"**AI** {message}")
 
-user_question = st.text_input("Ask a question")
+user_question = st.text_input("Ask a question about your workouts")
+
+if st.button("Submit"):
+    if user_question:
+        st.session_state.chat_history.append(("User", user_question))
+        user_data_text = "\n".join([doc["content"] for doc in documents])
+
+        result = qa_chain({
+            "query": user_question,
+            "user_data": user_data_text,
+            "persona": persona
+        })
+
+        ai_response = result['result']
+        st.session_state.chat_history.append(("AI", ai_response))
+        st.markdown(f"**AI Response** {ai_response}")
+
+        st.markdown("**Sources**")
+        for doc in result['source_documents']:
+            st.markdown(f"- {doc['content']}")
+
+        st.session_state.user_question = ""
+
+if st.button("Clear Conversation"):
+    st.session_state.chat_history = []
+    st.experimental_rerun()
+
+if theme == "Dark":
+    st.markdown(
+        """
+        <style>
+            .reportview-container {
+                background-color: #333333;
+                color: white;
+            }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+
+elif theme == "Sporty":
+    st.markdown(
+        """
+        <style>
+            .reportview-container {
+                background-color: #0E1F40;
+                color: #F5A623;
+            </style>
+        """,
+        unsafe_allow_html=True
+    )
+
+st.sidebar.markdown("### About the Chatbot")
+st.sidebar.write("This chatbot is designed to provide assistance on fitness and workout routines, integrating advanced RAG techniques with the Ollama LLM.")

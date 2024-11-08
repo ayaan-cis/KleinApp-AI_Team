@@ -5,7 +5,7 @@ from langchain.chains import RetrievalQA
 import streamlit as st
 import json
 
-JSON_FILE_PATH = "../json/data.json"
+JSON_FILE_PATH = "json/data.json"
 
 # This loads the file needed to be called
 def load_json_data(file_path):
