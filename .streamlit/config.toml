@@ -1,0 +1,25 @@
+# .streamlit/config.toml
+
+# Light Theme
+#[theme]
+#primaryColor = "#1f77b4"
+#backgroundColor = "#f0f2f6"
+#secondaryBackgroundColor = "#e5e5e5"
+#textColor = "#333333"
+#font = "sans serif"
+
+# Dark Theme
+#[theme]
+#primaryColor = "#f63366"
+#backgroundColor = "#262730"
+#secondaryBackgroundColor = "#0e1117"
+#textColor = "#ffffff"
+#font = "monospace"
+
+# Sporty Theme
+[theme]
+primaryColor = "#F5A623"
+backgroundColor = "#0E1F40"
+secondaryBackgroundColor = "#0A1B30"
+textColor = "#F5A623"
+font = "serif"
