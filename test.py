@@ -1,9 +1,9 @@
 from langchain.chains.retrieval_qa.base import RetrievalQA
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_ollama.llms import OllamaLLM
+from langchain_ollama import OllamaEmbeddings
 from langchain.vectorstores import FAISS
 from langchain.chains import RetrievalQA
-from langchain.embeddings import LlamaEmbeddings
 import streamlit as st
 import json
 
@@ -29,7 +29,7 @@ def processed_json_data(json_data):
 json_data = load_json_data(JSON_FILE_PATH)
 documents = processed_json_data(json_data)
 
-embedding_model = LlamaEmbeddings(model="llama3")
+embedding_model = OllamaEmbeddings(model="llama3")
 vector_store = FAISS.from_documents(documents, embedding_model)
 retriever = vector_store.as_retriever()
 
