@@ -1,0 +1,66 @@
+/* General Chatbot Styles */
+.chatbot-container {
+    background-color: #1A1D21; /* Dark background */
+    color: #FAFAFA; /* White text */
+    font-family: 'ProximaNova-Regular', sans-serif;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* Chatbot Message Bubbles */
+.chatbot-message {
+    background-color: #D12128; /* Primary red for chatbot messages */
+    color: #FAFAFA; /* White text for readability */
+    padding: 12px 16px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    max-width: 80%;
+}
+
+/* User Message Bubbles */
+.user-message {
+    background-color: #47B2FF; /* Secondary blue for user messages */
+    color: #1A1D21; /* Dark text on light background */
+    padding: 12px 16px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    max-width: 80%;
+    align-self: flex-end;
+}
+
+/* Input Field */
+.chatbot-input {
+    background-color: #1A1D21;
+    color: #FAFAFA;
+    border: 1px solid #47B2FF;
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 14px;
+    width: calc(100% - 22px); /* Adjust for padding */
+}
+
+/* Send Button */
+.send-button {
+    background-color: #D12128; /* Primary red */
+    color: #FAFAFA;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.send-button:hover {
+    background-color: #a91a1e; /* Slightly darker shade on hover */
+}
+
+/* Optional: Scrollbar Styling */
+.chatbot-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.chatbot-container::-webkit-scrollbar-thumb {
+    background-color: #47B2FF; /* Secondary blue scrollbar */
+    border-radius: 4px;
+}
